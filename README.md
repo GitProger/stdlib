@@ -1,4 +1,4 @@
-#Minimalistic C standart library
+# Minimalistic C standart library
 
 This is lite version of GNU C Standart Library
 
