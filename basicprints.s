@@ -8,11 +8,11 @@
 
 __asm_strlen_local: ## result - %rax, argument - %rdi
     movq    %rdi, %rax
-    WHILE_RDX_NE_0__0:
+    WHILE_RAX_NE_0__0:
         cmpb    $0, (%rax)
         je      END_WHILE__0
         inc     %rax
-        jmp     WHILE_RDX_NE_0__0
+        jmp     WHILE_RAX_NE_0__0
     END_WHILE__0:
     subq    %rdi, %rax
     ret
@@ -23,16 +23,12 @@ __asm_strlen_local: ## result - %rax, argument - %rdi
 __printstr:
     pushq   %rbp
     movq    %rsp, %rbp
-
     movq    %rdi, %rsi   # i dont know how to fix it, but argument is rdi
-
     call    __asm_strlen_local #the same as __strlen
     movq    %rax, %rdx
-
     movq    $1, %rax
     movq    $1, %rdi
-    syscall
- 
+    syscall 
     popq    %rbp
     ret
     
