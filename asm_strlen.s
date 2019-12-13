@@ -1,8 +1,8 @@
 /**
- *   Not actual file in 0.0bets version
- *   Most of code is stack(cdecl, stdcall) orientated
- *   But most of asm-code is register(fastcall, pascal) orientated
- *   So this 'strlen' version need for compatibility with asm-code
+ *   Not actual file beta version.
+ *   Most of code is stack(cdecl, stdcall) orientated (that's not true for current version).
+ *   But most of asm-code is register(fastcall, pascal) orientated.
+ *   So this 'strlen' version need for compatibility with asm-code.
  */
 
 __asm_strlen_local: ## result - %rax, argument - %rdi
