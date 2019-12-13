@@ -17,3 +17,13 @@ bool __isspace(char s) {
             return true;
     return false;
 }
+
+char __toupper(char x) {
+    if ('a' <= x && x <= 'z') x ^= 0x20;
+    return x;
+}
+
+char __tolower(char x) {
+    if ('A' <= x && x <= 'Z') x ^= 0x20;
+    return x;
+}
