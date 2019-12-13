@@ -5,21 +5,15 @@
     ret
 .endm
 
+.include "asm_strlen.s"
+####################################
+## MODULE INFO #####################
+    .globl    __printstr
+    .type     __printstr, @function
+    .globl    __scanstr
+    .type     __scanstr, @function
+####################################
 
-__asm_strlen_local: ## result - %rax, argument - %rdi
-    movq    %rdi, %rax
-    WHILE_RAX_NE_0__0:
-        cmpb    $0, (%rax)
-        je      END_WHILE__0
-        inc     %rax
-        jmp     WHILE_RAX_NE_0__0
-    END_WHILE__0:
-    subq    %rdi, %rax
-    ret
-
-
-.globl    __printstr
-.type     __printstr, @function
 __printstr:
     pushq   %rbp
     movq    %rsp, %rbp
@@ -33,6 +27,14 @@ __printstr:
     ret
     
 ## .size printstr, . - printstr
+
+__scanstr:
+    pushq   %rbp
+    movq    %rsp, %rbp
+
+    popq    %rbp
+    ret
+
 
 .section .__small_std_lib_section_info
 __VERSION__: 
